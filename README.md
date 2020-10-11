@@ -6,4 +6,4 @@
 
 <br>
 
-[![fundo](.\Programacao-Sitios\Atividade-03\fundo.png)](http://fatecjahu.edu.br/)
+[![fundo](../Programacao-Sitios/Atividade-03/fundo.png)](http://fatecjahu.edu.br/)
