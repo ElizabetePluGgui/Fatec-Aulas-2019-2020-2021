@@ -12,7 +12,7 @@
 
 <br>
 
-# Assim ficou meu Cronômetro segue a imagem:
+### Assim ficou meu Cronômetro segue a imagem:
 
 <br>
 
