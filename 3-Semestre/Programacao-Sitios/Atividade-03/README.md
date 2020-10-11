@@ -7,9 +7,13 @@
 [![fundo](./fundo.png)](http://fatecjahu.edu.br/)
 <br>
 <br>
+
 ## Atividade da Aula-08 Cronômetro HTML com JavaScript.
+
 <br>
+
 # Assim ficou meu Cronômetro segue a imagem:
+
 <br>
 
 [![cro](./cro.png)](http://fatecjahu.edu.br/)
