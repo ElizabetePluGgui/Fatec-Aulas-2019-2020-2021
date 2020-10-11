@@ -11,4 +11,4 @@
 <br>
 # Assim ficou meu Cronômetro segue a imagem:
 <br>
-[![fundo](./cro.png)](http://fatecjahu.edu.br/)
+[![cro](./cro.png)](http://fatecjahu.edu.br/)
