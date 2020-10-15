@@ -1,0 +1,55 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<title> Exercício 2 Lista</title>
+		<script>
+			function calcular()
+			{
+				var salario = document.getElementById("salario").value;
+				var conta1 = document.getElementById("conta1").value;
+				var conta2 = document.getElementById("conta2").value;
+				var erro = 0;
+				
+				if(salario == "" || salario <= 0)
+				{
+					alert("Preencha o valor do salário");
+					erro++;
+				}
+				if(conta1 == "" || conta1 <= 0)
+				{
+					alert("Preencha o valor da Conta 1");
+					erro++;
+				}
+				if(conta1 == "" || conta2 <=0)
+				{
+					alert("Preencha o valor da Conta 2");
+					erro++;
+				}
+				if(erro == 0)
+				{
+					conta1 = parseFloat(conta1);
+					conta2 = parseFloat(conta2);
+					
+					var contaPagar =(conta1 + conta2) + (conta1 + conta2) * 0.02;
+					
+					
+					var sobrou = salario - contaPagar;
+					
+					alert("Sobrou do salário R$ " + sobrou); 
+				}
+					
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Exercício 2</h2>
+		<!--entradas-->
+		<label>Digite o salário</label>
+		<input type="text" id="salario"><br><br>
+		<label>Digite o valor da conta 1</label>
+		<input type="text" id="conta1"><br><br>
+		<label>Digite o valor da conta 2</label>
+		<input type="text" id="conta2"><br><br>
+		<button onclick="calcular()">Enviar</button>
+	</body>
+</html>

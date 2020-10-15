@@ -1,0 +1,31 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<title>Exercício 8</title>
+	</head>
+	<body>
+		<script>
+			var vetor = [90, 77, 46, 50, 1, 25, 43, 22, 12, 0];
+			
+			alert(vetor);
+			
+			var maior = vetor[0];
+			var menor = vetor[0];
+			
+				
+			for(x=1; x < vetor.length; x++)
+			{
+				if(vetor[x] < menor)
+				{
+					menor = vetor[x];
+				}
+				if(vetor[x] > maior)
+				{
+					maior = vetor[x];
+				}
+			}
+			alert("O maior valor = " + maior + "\nO menor valor = " + menor);	
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,98 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<title>Contato</title>
+		<script>
+			function verificar()
+			{
+				var nome = document.getElementById("nome");
+				var sexo1 = document.getElementById("s1");
+				var sexo2 = document.getElementById("s2");
+				var pref1 = document.getElementById("p1");
+				var pref2 = document.getElementById("p2");
+				var pref3 = document.getElementById("p3");
+				var pref4 = document.getElementById("p4");
+				var profissao = document.getElementById("profissao");
+				var observacao = document.getElementById("obs");
+				nome.style = "border-color:black";
+				if(nome.value == "")
+				{
+					alert("Preencha o Nome");
+					nome.style = "border:1px solid red";
+				}
+				else if(sexo1.checked == false && !sexo2.checked)
+				{
+					alert("Escolha uma opção de sexo");
+				}
+				else if(!pref1.checked && !pref2.checked && !pref3.checked && !pref4.checked)
+				{
+					alert("Escolha pelo menos uma preferência");
+				}
+				else if(profissao.value == "0")
+					alert("Escolha uma profissão");
+				else if(observacao.value == "")
+					alert("Faça uma observação");
+				else
+				{
+					if(sexo1.checked == true)
+					{
+						var sexo = sexo1.value;
+					}
+					else
+					{
+						var sexo = sexo2.value;
+					}
+					//preferências
+					var pref="";
+					
+					if(pref1.checked)
+						pref = pref1.value;
+					//primeira forma de perguntar	
+					if(pref2.checked && pref.length > 0)
+						pref = pref + " , " + pref2.value;
+					else if(pref2.checked)
+							pref = pref2.value;
+					//outra forma de perguntar	
+					if(pref3.checked)
+						if(pref.length > 0)
+							pref = pref + " , " + pref3.value;
+						else
+							pref = pref3.value;
+						
+					if(pref4.checked && pref.length > 0)
+						pref = pref + " , " + pref4.value;
+					else if(pref4.checked)
+						pref = pref4.value;
+						
+					alert("Nome: " + nome.value + "\nSexo: " + sexo +"\nPreferências: "+ pref + "\nProfissão: " + profissao.value + "\nObservação: " + observacao.value);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h2>Contato</h2>
+		<br>
+		<label>Nome:</label>
+		<input type="text" id="nome"><br><br>
+		<label>Sexo:<label>
+		<input type="radio" name="sexo" value="M" id="s1" >Masculino
+		<input type="radio" name="sexo" value="F" id="s2">Feminino
+		<br><br>
+		<label>Profissão</label>
+		<select id="profissao">
+			<option value="0">Escolha uma Profissão</option>
+			<option value="Professor">Professor</option>
+			<option value="Médico">Médico</option>
+			<option value="Outra">Outra</option>
+		</select><br><br>
+		<label>Preferências</label><br>
+		<input type="checkbox" value="Jogos" id="p1">Jogos
+		<input type="checkbox" value="Leitura" id="p2">Leitura
+		<input type="checkbox" value="Música" id="p3">Música
+		<input type="checkbox" value="Outros" id="p4">Outros
+		<br><br>
+		<label>Observação</label><br>
+		<textarea id="obs"></textarea>
+		<br><br><button onclick="verificar()">Enviar</button>
+	</body>
+</html>

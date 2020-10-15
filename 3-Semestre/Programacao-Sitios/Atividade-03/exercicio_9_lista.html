@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Exercício 9 da Lista</title>
+	</head>
+	<body>
+		<script>
+			//entradas
+			var n1 = parseInt(prompt("Digite um número inteiro"));
+			var n2 = parseInt(prompt("Digite um número inteiro"));
+			var n3 = parseInt(prompt("Digite um número inteiro"));
+			var n4 = parseInt(prompt("Digite um número inteiro"));
+			
+			//processamento
+			var maior = n1;
+			var menor = n1;
+			
+			if(n2 > maior)
+				maior = n2;
+				
+			if(n2 < menor)
+				menor = n2;
+			//n3
+			if(n3 > maior)
+				maior = n3;
+				
+			if(n3 < menor)
+				menor = n3;
+			
+			//n4
+			if(n4 > maior)
+				maior = n4;
+				
+			if(n4 < menor)
+				menor = n4;
+				
+			//saídas
+			
+			alert("O menor número é " + menor + "\nO maior número é " + maior);
+		</script>
+	</body>
+</html>

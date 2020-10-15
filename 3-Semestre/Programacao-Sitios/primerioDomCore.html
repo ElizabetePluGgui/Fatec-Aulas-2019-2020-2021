@@ -1,0 +1,84 @@
+<!doctype html>
+<html>
+	<head>
+		<title>DOM CORE</title>
+		<script>
+			function Criar()
+			{
+				
+				var h1 = document.createElement("h1");
+				
+				var texto = document.createTextNode("Bom dia!");
+				
+				h1.appendChild(texto);
+				
+				h1.setAttribute("class", "classe");
+				
+				document.getElementById("div").appendChild(h1);
+				
+				/*var div = document.getElementById("div");
+				//verificar se o elemento tem filhos
+				if(div.hasChildNodes())
+				{
+					alert("sim");
+				}
+				else
+				{
+					alert("Não");
+				}
+				//obtendo o primeiro filho
+				var first = div.firstChild;
+				//tipo do nó do primeiro filho
+				alert("Tipo de Nó: " + first.nodeType);
+				//nome do nó do primeiro filho
+				alert("Nome do Nó: " + first.nodeName);
+				//valor do nó do primeiro filho
+				alert("Valor do Nó: " + first.nodeValue);
+				//quantidade de filhos do elemento				
+				var qFilhos = div.childNodes.length;
+				alert("Quantidade de Filhos: " + qFilhos);
+				first.style = "color:blue";
+				
+				//devendoverificar se o elemento first tem atributo 
+				if(first.hasAttributes())
+				{
+					alert("sim");
+				}
+				else
+				{
+					alert("Não");
+				}
+				//acessar um irmão pelo outro irmão - próximo 
+				var proximo = first.nextSibling;
+				if(proximo != null)
+				{
+					alert("Próximo Irmão: " + proximo.nodeName);
+					proximo.style = "color:red";
+					//obtendo o pai do elemento
+					var pai = proximo.parentNode;
+					alert("Pai do Elemento: " + pai.nodeName);
+				}
+				//obtendo os filhos do elemento
+				var filhos = div.childNodes;
+				//obteve o filho do primeiro filho e mostramos os valor
+				alert(filhos[0].firstChild.nodeValue);
+				//devendovar filhoDofilho = filhos[0].firstChild;
+				//filhoDofilho.innerHTML = "Boa Noite";*/
+				
+			}
+			function remover()
+			{
+				var div = document.getElementById("div");
+				var first = div.firstChild;
+				div.removeChild(first);
+
+			}
+		</script>
+	</head>
+	<body>
+		<h1>DOM CORE</h1>
+		<div id="div"></div>
+		<button onclick="Criar()">Novo</button>
+		<button onclick="remover()">Remover</button>
+	</body>
+</html>

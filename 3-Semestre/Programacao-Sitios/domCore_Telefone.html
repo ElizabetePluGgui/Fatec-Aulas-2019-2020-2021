@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<title>DOM CORE - Telefone</title>
+		<script>
+			function Criar()
+			{
+				var label = document.createElement("label");
+				var texLabel = document.createTextNode("Telefone:");
+				var input = document.createElement("input");
+				var button = document.createElement("button");
+				var textButton = document.createTextNode("X");
+				button.setAttribute("onclick", "remover()");
+				var br = document.createElement("br");
+				input.setAttribute("type", "text");
+				label.appendChild(texLabel);
+				button.appendChild(textButton);
+				var div = document.getElementById("tel");
+				div.appendChild(label);
+				div.appendChild(input);
+				div.appendChild(button);
+				div.appendChild(br);
+				
+			}
+			function remover()
+			{
+				
+
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Contato</h1>
+		<br><label>Nome:</label>
+		<input type="text">
+		<br><br><label>Telefone</label>
+		<input type="text">
+		<button onclick="Criar()">Novo</button>
+		<div id="tel"></div>
+	</body>
+</html>

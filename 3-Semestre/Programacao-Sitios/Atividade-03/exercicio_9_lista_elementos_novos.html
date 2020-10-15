@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Exercício 9 da Lista</title>
+		<script>
+			function verificar()
+			{
+				//entradas
+				
+				var num1 = document.getElementById("n1");
+				//alert(num1.type);
+				//alert(num1.id);
+				//alert(num1.value);
+				var num2 = parseInt(document.getElementById("n2").value);
+				var num3 = parseInt(document.getElementById("n3").value);
+				var num4 = parseInt(document.getElementById("n4").value);
+				var erro = 0;
+				//verificar se estão preenchidos os números
+				if(parseInt(num1.value) == "")
+				{
+					num1.style = "border: 1px solid red;";
+					num1.style.border = "1px solid red";
+					erro++;
+				}
+				if(num2 == "")
+				{
+					
+					erro++;	
+				}
+				if(num3 == "")
+					erro++;	
+				if(num4 == "")
+					erro++;
+				if(erro == 0)
+				{
+					//processamento
+					var maior = num1.value;
+					var menor = num1.value;
+					
+					if(num2 > maior)
+						maior = num2;
+						
+					if(num2 < menor)
+						menor = num2;
+					//n3
+					if(num3 > maior)
+						maior = num3;
+						
+					if(num3 < menor)
+						menor = num3;
+					
+					//n4
+					if(num4 > maior)
+						maior = num4;
+						
+					if(num4 < menor)
+						menor = num4;
+						
+					//saídas
+					
+					alert("O menor número é " + menor + "\nO maior número é " + maior);
+				}
+				else
+				{
+					alert("Preencha todos os números");
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<h3>Exercício 9 - Usando Função</h3>
+		<br>
+		<label for="n1">Primeiro Número:</label>
+		<input type="text" id="n1"><br><br>
+		<label>Segundo Número:</label>
+		<input type="text" id="n2"><br><br>
+		<label>Terceiro Número:</label>
+		<input type="text" id="n3"><br><br>
+		<label>Quarto Número:</label>
+		<input type="text" id="n4"><br><br>
+		<button onclick="verificar()">Enviar</button>
+	</body>
+</html>
