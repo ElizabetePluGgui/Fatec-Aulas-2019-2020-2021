@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Objeto String</title>
+	</head>
+	<body>
+	<script>
+		var s = "Hoje � sexta-feira";
+		
+		alert(s);
+		var n = s.length;
+		alert("tamanho String = " + n);
+		var str1 = "Jo�o ";
+		var str2 = "Silva";
+		var res = str1.concat(str2);
+		alert("concat = " + res);
+		var str = "Hello world, welcome to the universe.";
+		var n = str.indexOf("welcome");
+		alert("indexOf = " + n);
+		var str = "Visit Microsoft!";
+		var res = str.replace("Microsoft", "W3Schools");
+		alert("replace = " + res);
+		var str = "Hello world!";
+		var res = str.slice(1,5);
+		alert("slice = " + res);
+		var str = "How are you doing today?";
+		var res = str.split(" ");
+		alert("split primeira ocorr�ncia = " + res[0]);
+		
+		var str = "Hello World!";
+		var res = str.toUpperCase();
+		alert("Letras Mai�sculas  = " +  res);
+		var res1 = str.toLowerCase();
+		alert("Letras Min�sculas  = " +  res1);
+
+		// var str = "Vania";
+		// var nome ="";
+		// for(var x=str.length-1; x>=0; x--)
+		// {
+		// 	var nome = nome + str[x];
+		// }
+		// alert(nome);
+	</script>
+	</body>
+</html>

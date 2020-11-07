@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>pppppp</title>
+
+
+</head>
+<body>
+    <label>Digite uma cadena: </label><input type="text" id="text">
+    <input type="submit" value="Check" onclick="esPalindromo()">
+<script>
+
+    document.write("É um palindromo?")
+
+    function esPalindromo(cadena) {
+        t = cadena.length;
+
+
+        if(t == 0){
+            return false;
+        }
+        for(i=0; i<t/2; i++){
+            if(cadena[i] != cadena[t-1-i]) {
+                return false;
+            }
+        }
+        return true;
+    }
+</script>
+
+</body>
+</html>

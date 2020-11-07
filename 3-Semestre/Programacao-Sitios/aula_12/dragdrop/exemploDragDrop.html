@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<style>
+		#div1 {
+		  margin-left:400px;
+		  width: 300px;
+		  height:250px;
+		  padding: 10px;
+		  border: 5px solid #aaaaaa;
+		  text-align:center;
+		}
+		</style>
+		<script>
+			function allowDrop(ev)
+			{
+				ev.preventDefault();
+						
+			}
+
+			function drag(ev) {
+				ev.dataTransfer.setData("img", ev.target.id);
+				var e=ev.target.id;
+			}
+					
+			function drop(ev)
+			{	
+				ev.preventDefault();
+				var data = ev.dataTransfer.getData("img");
+				alert(data.src);
+				ev.target.appendChild(document.getElementById(data));
+				if(data=="drag3")
+				{
+					
+					alert("Parabéns!!!");
+				}
+				else
+				{
+					alert("Você errou. Tente novamente!");
+				}
+							
+			}
+			</script>
+	</head>
+	<body>
+		<h1 style="margin-left:405px;">Exemplo Drag and Drop</h1><br><br>
+		<h3 style="margin-left:420px;">Arraste a figura para essa área</h3>	
+		<div id="div1" ></div><br><br>
+		<div style="margin-left:440px;">
+			<img id="drag1" src="duasperas.png"  width="210" height="104">
+		</div>
+	</body>
+</html>

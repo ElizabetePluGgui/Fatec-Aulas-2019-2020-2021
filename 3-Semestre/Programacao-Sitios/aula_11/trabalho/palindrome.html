@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Palíndromos</title>
+		<script>
+			var texto = "";
+			var textosemespaco = "";
+			var textoinvertido;
+			var textominusculo;
+			function verificar()
+			{
+				textominusculo = "";
+				textoinvertido = "";
+				texto = document.getElementById("inputtexto").value;
+				textosemespaco = texto.split(" ");
+				for (x=0; x<textosemespaco.length; x++)
+				{
+					textominusculo = textominusculo + textosemespaco[x];
+				}
+				textominusculo = textominusculo.toLowerCase();
+				for (x=textominusculo.length-1; x>=0; x--)
+				{
+					textoinvertido =  textoinvertido + textominusculo[x];
+				}
+				if (textominusculo == textoinvertido)
+				{
+					alert("Esse é um palindromo");
+				}
+				else
+				{
+					alert("Que pena, tente outra vez!!!");
+				}
+				document.reload;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>VERIFIQUE UMA FRASE ou PALAVRA PALÍNDROMOS</h1>
+		<br>
+		<label>Digite sem acentuação:</label>
+		<input type="text" id="inputtexto">
+		<button id="botao" onclick="verificar()">VERIFIQUE</button>
+	</body>
+</html>

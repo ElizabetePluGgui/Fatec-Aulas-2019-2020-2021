@@ -1,0 +1,42 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Escopo e Declaração de variáveis</title>
+	</head>
+	<body>
+		<script>
+			//escopo global
+			var nome = "Pedro";
+			var condicao = true;
+			//let nome = "Pedro";
+			//const nome = "Pedro";
+			if(condicao)
+			{
+				//var nome3 = "José";
+				//let nome3 = "José";
+				const nome3 = "José";
+				console.log(nome3);
+			}
+			//chamando a função
+			f1();
+			function f1()
+			{
+				//escopo é local
+				//var nome2 = "Maria";
+				//let nome2 = "Maria";
+				const nome2 = "Maria";
+				console.log(nome);
+				console.log(nome2);
+				//dá erro para o let e const, porque respeitam o escopo de bloco, mas não dá erro para var, pois não respeita o escopo de bloco
+				console.log(nome3);
+			}
+			//escreve na console
+			console.log(nome);
+			//erro porque a variável é de escopo local(declarada dentro da função)
+			//console.log(nome2);
+			//dá erro para o let e const, porque respeitam o escopo de bloco, mas não dá erro para var, pois não respeita o escopo de bloco
+			console.log(nome3);
+			
+		</script>
+	</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exemplo 3 - Eventos</title>
+	</head>
+	<body>
+		<input type="text" onkeydown="f3(event)">
+
+		<script>
+		function f3(event) {
+			alert("Você precionou uma tecla " + event.keyCode + " - " + String.fromCharCode(event.keyCode));
+		}
+		</script>
+	</body>
+</html>

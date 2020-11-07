@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Exemplo 5 - Eventos</title>
+	</head>
+	<body>
+
+		<div onmouseover="mOver(this)" onmouseout="mOut(this)" 
+		style="background-color:#D94A38;width:120px;height:20px;padding:40px;">
+		Passe o Mouse dentro da caixa</div>
+
+		<script>
+		function mOver(obj) {
+			obj.innerHTML = "Obrigada!";
+		}
+
+		function mOut(obj) {
+			obj.innerHTML = "Está fora da Caixa";
+		}
+		</script>
+
+	</body>
+</html> 

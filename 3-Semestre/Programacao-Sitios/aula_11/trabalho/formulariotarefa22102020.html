@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Cadastro</title>
+		<style>
+			.erro{color:red; font-size:14px;}
+		</style>
+		<script>
+			var banners = ["banner1.png", "banner2.png", "banner3.png", "banner4.png"]
+			var x = 0;
+			function banner()
+			{
+				setInterval("atualizar()",2000);
+			}
+			function atualizar()
+			{
+				x++;
+				if (x==4)
+				{
+					x=0;
+				}
+				document.getElementById("banner").src = banners[x];
+			}
+			function adicionar()
+			{
+				var inputAluno = document.createElement("input");
+				var inputCurso = document.createElement("select");
+				var inputRemover = document.createElement("button");
+				var diverro = document.createElement("div");
+			
+				var optioninfo = document.createElement("option");
+				var optionmarc = document.createElement("option");
+				var optionculi = document.createElement("option");
+				var optioncort = document.createElement("option");
+				var br = document.createElement("br");
+				var p = document.createElement("p");
+								
+				var labelaluno = document.createElement("label");
+				var labelcurso = document.createElement("label");
+				var labelespaco = document.createElement("label");
+								
+				var textoaluno = document.createTextNode("Nome do Aluno: ");
+				var textocurso = document.createTextNode(" Curso: ");
+				var textobotao = document.createTextNode("X");
+				var textobranco = document.createTextNode(" ");
+				var info = document.createTextNode("Informática");
+				var marc = document.createTextNode("Marcenaria");
+				var culi = document.createTextNode("Culinária");
+				var cort = document.createTextNode("Corte e Costura");
+				
+				labelaluno.appendChild(textoaluno);
+				labelcurso.appendChild(textocurso);
+				inputRemover.appendChild(textobotao);
+				labelespaco.appendChild(textobranco);
+					
+				optioninfo.appendChild(info);
+				optionmarc.appendChild(marc);
+				optionculi.appendChild(culi);
+				optioncort.appendChild(cort);
+					
+				inputCurso.appendChild(optioninfo);
+				inputCurso.appendChild(optionmarc);
+				inputCurso.appendChild(optionculi);
+				inputCurso.appendChild(optioncort);
+				inputRemover.setAttribute("onclick", "return remover(this)");
+				inputAluno.setAttribute("name", "nome");
+				diverro.setAttribute("class", "erro");
+							
+				p.appendChild(labelaluno);
+				p.appendChild(inputAluno);
+				p.appendChild(labelcurso);
+				p.appendChild(inputCurso);
+				p.appendChild(labelespaco);
+				p.appendChild(inputRemover);
+				p.appendChild(diverro);
+
+				div.appendChild(p);
+				return false;
+			}
+			function remover(linha)
+			{
+				var elementos = linha.parentNode;
+				div.removeChild(elementos);
+				return false;
+			}
+			function validar()
+			{
+				var temErro = false;
+				var formulario = document.forms[0];
+				var erro = document.getElementsByClassName("erro");
+				//apagando as mensagens de erros anteriores
+				for(var y=0; y < erro.length; y++)
+				{
+					erro[y].innerHTML = "";
+				}
+				if(formulario.data.value == "")
+				{
+					erro[0].innerHTML = "Preencha a data";
+					temErro = true;
+				}
+				if(formulario.nome.length > 1)
+				{
+					for(var x=0; x < formulario.nome.length;x++)
+					{
+						if(formulario.nome[x].value == "")
+						{
+							erro[x+1].innerHTML = "Preencha o nome e campo correto";
+							temErro = true;
+							
+						}
+					}
+				}
+				else
+				{ 
+					
+					if(formulario.nome.value == "")
+					{
+						erro[1].innerHTML = "Preencha o campo correto";
+						temErro = true;
+						
+					}
+				}
+				
+				if(temErro)
+				{
+					return false;
+				}
+				else
+				{
+					return true;
+				}
+				
+			}
+		</script>
+	</head>
+	<body onload="banner()">
+		<img src="banner1.png" id="banner">
+		<h1>Matrículas</h1>
+		<form method="get" action="#" onsubmit="return validar()">
+			<label>Data Matricula:</label>
+			<input name="data" type="date">
+			<div class = "erro"></div>
+			<br>
+			<label>Nome do Aluno:</label>
+			<input name="nome" type="text">
+					<label>Curso:</label>
+			<select name="curso" id="curso">
+				<option value="informatica" selected>Informática</option>
+				<option value="marcenaria">Marcenaria</option>
+				<option value="culinaria">Culinária</option>
+				<option value="corteecostura">Corte e Costura</option>
+			</select>
+			<button id="mais" onclick="return adicionar()">+</button>
+			<div class = "erro"></div>
+			<div id="div"></div>
+			<br><input type="submit" value="Enviar">
+		</form>
+		
+
+	</body>
+</html>

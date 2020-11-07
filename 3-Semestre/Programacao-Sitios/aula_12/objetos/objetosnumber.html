@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Objetos Number</title>
+	</head>
+	<body>
+	<script>
+		var num = new Number(100);
+		alert("numero criado como objeto = " +num);
+		alert("Max = " + Number.MAX_VALUE);
+		alert("Min = " + Number.MIN_VALUE);
+		var n = new Number(Number.MAX_VALUE);
+		alert("infinit = " + n*2);
+		alert("-infinit = " + -1*n*2);
+		alert("Construtor = " + n.constructor);
+		var num = new Number(100);
+		var n = num.valueOf()
+		alert("valueOf = " + n);
+		var a = num.toString();
+		var b = num.toString(2);
+		var c = num.toString(8);
+		var d = num.toString(16);
+		alert("ToString base 10 = " + a);
+		alert("ToString base 2 = " + b);
+		alert("ToString base 8 = " + c);
+		alert("ToString base 16 = " + d);
+		var num = 5.56789;
+		var n = num.toFixed(2);
+		alert("toFixed 5.56789 = " + n);
+		n=num.toPrecision(2);
+		alert("toPrecision 5.56789 = " + n);
+		n= num.toExponential(2);
+		alert("toExponential 5.56789 = " + n);
+		var num = new Number("valor");
+		alert("valor como string = " + num);
+	</script>
+	</body>
+</html>
