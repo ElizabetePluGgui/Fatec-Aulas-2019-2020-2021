@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Clone</title>
+		<script>
+			var x = 0;
+			function clone()
+			{
+				var p = document.getElementById("p");
+				var clonep = p.cloneNode(true);
+				clonep.setAttribute("id", "p" + x);
+				document.getElementById("div").appendChild(clonep);
+				x++;
+				var br = document.createElement("br");
+				var br1 = br.cloneNode(false);
+				document.getElementById("div").appendChild(br);
+				document.getElementById("div").appendChild(br1);
+			}
+		</script>
+	</head>
+	<body>
+		<p id="p">Bom dia!</p>
+		<button onclick="clone()">Clonar</button>
+		<div id="div"></div>
+	</body>
+</html>

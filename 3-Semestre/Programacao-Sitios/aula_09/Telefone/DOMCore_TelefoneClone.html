@@ -1,0 +1,36 @@
+<!doctype html>
+<html>
+	<head>
+		<title>DOM CORE - Telefone</title>
+		<script>
+			function Criar()
+			{
+				var nfilho = document.getElementById("tel").childNodes.length;
+				var p = document.getElementById("p");
+				var clonep = p.cloneNode(true);
+				clonep.setAttribute("id", "p" + nfilho);
+				
+				clonep.lastChild.setAttribute("onclick", "remover(this)" );
+				var textoNovo = document.createTextNode("X");
+				clonep.lastChild.appendChild(textoNovo);
+				document.getElementById("tel").appendChild(clonep);
+				
+			}
+			function remover(botao)
+			{
+				var p = botao.parentNode;
+				var div = p.parentNode;
+				div.removeChild(p);
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Contato</h1>
+		<br><label>Nome:</label>
+		<input type="text">
+		<br><p id="p"><label>Telefone</label>
+		<input type="text">
+		<button onclick="Criar()">Novo</button></p>
+		<div id="tel"></div>
+	</body>
+</html>

@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Formulário</title>
+		<script>
+			function validar()
+			{
+				
+				if(document.getElementsByName("nome")[0].value == "")
+				{
+					document.getElementsByName("nome")[0].style = "border: 1px solid red";
+					return false;
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Contato</h1>
+		<form action="listar.html" method="get" onsubmit="return validar()">
+			<label>Nome:</label>
+			<input type="text" name="nome">
+			<br><br>
+			<label>e-Mail:</label>
+			<input type="email" name="email">
+			<br><br><input type="submit" value="Enviar">
+		</form>
+	</body>
+</html>

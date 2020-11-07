@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+	<head>
+		<title>DOM CORE - Telefone</title>
+		<script>
+			function Criar()
+			{
+				if(document.getElementById("tel").childNodes.length < 2)
+				{
+					var p = document.createElement("p");
+					var label = document.createElement("label");
+					var texLabel = document.createTextNode("Telefone:");
+					var input = document.createElement("input");
+					var button = document.createElement("button");
+					var textButton = document.createTextNode("X");
+					button.setAttribute("onclick", "remover(this)");
+					
+					input.setAttribute("type", "text");
+					label.appendChild(texLabel);
+					button.appendChild(textButton);
+					var div = document.getElementById("tel");
+					p.appendChild(label);
+					p.appendChild(input);
+					p.appendChild(button);
+					div.appendChild(p);
+				}
+				else
+				{
+					alert("O número de telefones está completo");
+				}
+			}
+			function remover(botao)
+			{
+				var p = botao.parentNode;
+				var div = p.parentNode;
+				div.removeChild(p);
+				
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Contato</h1>
+		<br><label>Nome:</label>
+		<input type="text">
+		<br><br><label>Telefone</label>
+		<input type="text">
+		<button onclick="Criar()">Novo</button>
+		<div id="tel"></div>
+	</body>
+</html>

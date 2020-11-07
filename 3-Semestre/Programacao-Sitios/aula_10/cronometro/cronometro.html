@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Cronômetro</title>
+		<link rel="stylesheet" type="text/css" href="cronometro.css">
+		<script src="cronometro.js"></script>
+	</head>
+	<body>
+		<section>
+			<h1>Cronômetro</h1>
+			<article>
+				<br><br><input id="min" disabled="disbled" type="text" value="00">
+				<label>:</label>
+				<input id="seg" disabled="disbled" type="text" value="00">
+			</article>
+		<br><br><button id="iniciar" onclick="iniciar()">Iniciar</button>
+		<button id = "parar" style="display:none" onclick="parar()">Parar</button>
+		<button id="reiniciar" style="display:none" onclick="reiniciar()">Reiniciar</button>
+		</section>
+	</body>
+</html>
