@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Pet</title>
+		<script>
+			function verificar()
+			{
+				var cliente = document.getElementById("cliente");
+				var pet = document.getElementById("pet");
+				var servico = document.getElementsByName("servico");
+				var erro = 0;
+
+				cliente.style="border-color:black;";
+				pet.style="border-color:black;";
+				
+				if(cliente.value == "")
+				{
+					alert("Preencha o Nome do Cliente");
+					cliente.style="border-color:red;";
+					erro++;
+					
+				}
+				if(pet.value == "")
+				{
+					alert("Preencha o Nome do Pet");
+					pet.style="border-color:red;"
+					erro++;
+				}
+				
+				var total = 0;
+				for(var x=0 ; x < servico.length ; x++)
+				{
+					if(servico[x].checked)
+					{
+						total = total + parseFloat(servico[x].value);
+						
+					}
+				}
+				if(total == 0)
+				{
+					alert("Escolha pelo menos um serviço");
+				} else if(erro == 0)
+				{
+					alert("Cliente: " + cliente.value + "\nPet: " + pet.value + "\nTotal a pagar = R$ " + total);
+				}
+				
+				
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Pelos e Penas</h1>
+		<label>Cliente:</label>
+		<input type="text" id="cliente"><br><br>
+		<label>Pet:</label>
+		<input type="text" id="pet"><br><br>
+		<fieldset>
+			<legend>Serviços</legend>
+			<h3>Tosa - R$ 60,00</h3>
+			<img src="tosa.jpg"><br><br>
+			<input type="checkbox" name="servico" value="60.00">
+			<h3>Banho - R$ 30,00</h3>
+			<img src="banho.jpg"><br><br>
+			<input type="checkbox" name="servico" value="30.00">
+			<h3>Escovação de Dentes - R$ 20,00</h3>
+			<img src="dente.jpg"><br><br>
+			<input type="checkbox" name="servico" value="20.00">
+		</fieldset>
+		
+		<br><br><button onclick="verificar()">Enviar</button>
+		
+	</body>
+</html>

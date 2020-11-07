@@ -1,0 +1,97 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<title>Jogo da Memória</title>
+		<script>
+			var figuras=[["i4.jpg", "i2.jpg"],
+			             ["i2.jpg", "i3.jpg"],
+						 ["i3.jpg", "i4.jpg"]];
+			var jogadas = 0;			 
+			var vezesClick = 0;	
+			var linha1;
+			var coluna1;
+			var linha2;
+			var coluna2;
+			var jogador1=0;
+			var jogador2=0;
+			function troca(lin, col)
+			{
+				var elemento = document.getElementById("f" + lin + col).src;
+				var vet = elemento.split("/");
+				var indice = vet.length - 1;
+							
+				if(vet[indice] == "i5.jpg")
+				{
+					vezesClick++; 
+					document.getElementById("f" + lin + col).src = figuras[lin][col];
+					if(vezesClick == 1)
+					{
+						linha1 = lin; 
+						coluna1 = col;
+					}
+					if(vezesClick == 2)
+					{
+						jogadas++;
+						vezesClick = 0;
+						if(figuras[linha1][coluna1] == figuras[lin][col])
+						{
+							if(jogadas%2 != 0)
+							{
+								jogador1++;
+							}
+							else
+							{
+								jogador2++;
+							}
+						}
+						else
+						{
+							linha2 = lin;
+							coluna2 = col;
+							setTimeout("desvirar()", 2000)
+						}
+					}
+					if((jogador1 + jogador2) == 3)
+					{
+						if(jogador1 > jogador2)
+						{
+							alert("Jogador1 venceu!");
+						}
+						else
+						{
+							alert("Jogador2 venceu!");
+						}
+					}
+				}
+				
+			}
+			function desvirar()
+			{
+				document.getElementById('f' + linha1 + coluna1).src = 'i5.jpg';
+				document.getElementById('f' + linha2 + coluna2).src = 'i5.jpg';
+			}
+			function reiniciar()
+			{
+				document.location.reload();
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Jogo da Memória</h1>
+		<table>
+			<tr>
+				<td><img src="i5.jpg" onclick="troca(0,0)" id="f00"></td>
+				<td><img src="i5.jpg" onclick="troca(0,1)" id="f01"></td>
+			</tr>
+			<tr>
+				<td><img src="i5.jpg" onclick="troca(1,0)" id="f10"></td>
+				<td><img src="i5.jpg" onclick="troca(1,1)" id="f11"></td>
+			</tr>
+			<tr>
+				<td><img src="i5.jpg" onclick="troca(2,0)" id="f20"></td>
+				<td><img src="i5.jpg" onclick="troca(2,1)" id="f21"></td>
+			</tr>
+		</table>
+		<br><br><button onclick="reiniciar()">Jogar Novamente</button>
+	</body>
+</html>
