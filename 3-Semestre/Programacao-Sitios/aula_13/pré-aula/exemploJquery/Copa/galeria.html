@@ -1,0 +1,37 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Galeria</title>
+		<link href="../lib/gallerie.css" rel="stylesheet" type="text/css" />
+		<link href="lib/gallerie-effects.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="../lib/jquery.js"></script>
+		<script type="text/javascript" src="../lib/jquery.gallerie.js"></script>
+		<style>
+			body{background-color:white;}
+			#geral{width:980px;}
+			#topo{height:150px;background-color:white;
+				  background-image: url("fotosCopa/topo.jpg");
+				  border: 2px solid green;}
+			#galeria{margin-top:30px;}
+		</style>
+		<script>
+			$(function(){
+				$("#galeria").gallerie();
+			});
+		</script>
+	</head>
+	<body>
+		<div id="geral">
+			<div id="topo"></div>
+			<div id="galeria">
+				<a href="fotosCopa/f0.jpg"><img src="fotosCopa/f0p.jpg" /></a>
+				<a href="fotosCopa/f1.jpg"><img src="fotosCopa/f1p.jpg" /></a>
+				<a href="fotosCopa/f2.jpg"><img src="fotosCopa/f2p.jpg" /></a>
+				<a href="fotosCopa/f3.jpg"><img src="fotosCopa/f3p.jpg" /></a>
+				<a href="fotosCopa/f4.jpg"><img src="fotosCopa/f4p.jpg" /></a>
+				<a href="fotosCopa/f5.jpg"><img src="fotosCopa/f5p.jpg" /></a>
+			</div>
+		</div>
+		
+	</body>
+</html>

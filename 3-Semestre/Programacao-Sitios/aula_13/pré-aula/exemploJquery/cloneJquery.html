@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+	<head>
+		<script type="text/javascript" src="lib/jquery.js"></script>
+		
+	</head>
+	<body>
+		<p id="p">
+			<label>Telefone</label>
+			<input type="text" name="tel" />
+		</p>
+		<button>+</button>
+		<div id="tel"></div>
+		<script>
+			$("button").click(function(){
+			$("#p").clone().appendTo("#tel");
+			});
+		</script>
+	</body>
+</html>

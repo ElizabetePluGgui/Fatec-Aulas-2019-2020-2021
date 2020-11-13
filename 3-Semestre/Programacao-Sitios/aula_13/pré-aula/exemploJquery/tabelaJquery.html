@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Tabela com Jquery</title>
+		<script type="text/javascript" src="lib/jquery-latest.js"></script>
+		<script type="text/javascript" src="lib/jquery.quicksearch.js"></script>
+		<script type="text/javascript" src="lib/jquery.tablesorter.js"></script>
+	</head>
+	<body>
+		<table border='1' id="tab">
+			<thead>	
+				<tr><th>Contato</th><th>Celular</th></tr>
+			</thead>
+			<tbody>
+				<tr><td>Antônia</td><td>(14)995432354</td></tr>
+				<tr><td>Carla</td><td>(14)995532354</td></tr>
+				<tr><td>Gabriela</td><td>(14)995832854</td></tr>
+				<tr><td>Isabela</td><td>(14)995455554</td></tr>
+				<tr><td>Karina</td><td>(14)985432354</td></tr>
+				<tr><td>Lucia</td><td>(14)995333354</td></tr>
+				<tr><td>Claudia</td><td>(14)995322354</td></tr>
+			</tbody>
+			<tfoot>
+				<tr><td colspan="2">Rodapé da tabela</td></tr>
+			</tfoot>
+		</table>
+		
+		<script type="text/javascript" id="js">
+	$(document).ready(function()
+	{ 
+    	// extend the default setting to always include the zebra widget. 
+	    $.tablesorter.defaults.widgets = ['zebra']; 
+	    // extend the default setting to always sort on the first column 
+	    $.tablesorter.defaults.sortList = [[0,0]]; 
+	    // call the tablesorter plugin 
+	    $("table").tablesorter(); 
+		$("#tab tbody tr").quicksearch({
+            labelText: 'Pesquisar: ',
+            attached: '#tab',
+            position: 'before',
+            loaderText: 'Carregando...',
+            onAfter: function() {
+                if ($("#tab tbody tr:visible").length != 0) {
+                    $("#tab").trigger("update");
+                    $("#tab").trigger("appendCache");
+                    $("#tab tfoot tr").hide();
+                }
+                
+            }
+        });
+	});
+  </script>
+	</body>
+</html>

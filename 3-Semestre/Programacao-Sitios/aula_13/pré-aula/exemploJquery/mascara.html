@@ -1,0 +1,35 @@
+<!doctype html>
+<html>
+<head>
+	<script type="text/javascript" src="lib/jquery.js"></script>
+	<script type="text/javascript" src="lib/jquery.maskedinput.js"></script>
+</head>
+<body>
+<form method="post" action="">	
+  <label>Telefone</label>
+   <input type="text" name="telefone" id="telefone"><br /><br />
+  <label>CPF</label>
+   <input  type="text" name="cpf" id="cpf"><br /><br />
+  
+  <label>Cep</label>
+   <input type="text" name="cep" id="cep"><br /><br />
+  <label>CNPJ</label>
+   <input  type="text" name="cnpj" id="cnpj"><br /><br />
+   <label>Placa</label>
+   <input type="text" name="placa" id="placa"><br /><br />
+</form>
+<script type="text/javascript"> 
+
+$(function($){
+   
+   $("#telefone").mask("(99) 9999-9999");
+   $("#cpf").mask("999.999.999-99");
+   $("#cep").mask("99999-999"); 
+   $("#cnpj").mask("99.999.999/9999-99");
+   $("#placa").mask("aaa - 9999"); 
+});
+</script> 
+</body>
+</html>
+
+
