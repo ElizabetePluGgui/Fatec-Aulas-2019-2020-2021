@@ -1,0 +1,102 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<title>Quebra Cabeça</title>
+		
+		<style>
+			#d1{margin-left:200px;}
+			#d5{display:flex; flex-wrap: wrap;box-sizing:border-box;border:0;padding:0;margin:0;}
+			#c1{display:none; flex-wrap: wrap;box-sizing:border-box;border:0;padding:0;max-width:50%;}
+			#c2{display:none; flex-wrap: wrap;box-sizing:border-box;border:1px solid #C0C0C0;padding:0;max-width:50%;min-width:30%;}
+			img{margin:0; padding:0;width:200px;
+				height:200px;}
+			body{box-sizing:border-box;margin:0;padding:0;}
+			.d1{width:200px;height:200px; border:1px solid #C0C0C0;}
+			h1{margin-left:500px;}
+			h2{margin-left:320px;}
+			
+		
+		</style>
+		<script>
+		
+			var imagens = [["p6.png", "p8.png", "p5.png", "p3.png", "p7.png", "p2.png", "p9.png", "p1.png", "p4.png"],
+			["pi6.png", "pi8.png", "pi5.png", "pi1.png", "pi7.png", "pi4.png", "pi2.png" , "pi9.png", "pi3.png"],
+			["pn6.png", "pn8.png", "pn5.png", "pn1.png", "pn7.png", "pn4.png",  "pn2.png", "pn9.png", "pn3.png"],
+			["pn26.png", "pn28.png", "pn25.png", "pn21.png", "pn27.png", "pn24.png",  "pn22.png", "pn29.png", "pn23.png"]];
+			
+			function carregar(lin)
+			{
+				for(var col=0;col < imagens[lin].length;col++)
+				{
+					var img = document.createElement("img");
+					var id = imagens[lin][col].split(".");
+					img.setAttribute("id", id[0]);
+					img.setAttribute("src", "imagem/" + imagens[lin][col]);
+					img.setAttribute("draggable", true);
+					img.setAttribute("ondragstart", "inicio(event)");
+					img.setAttribute("ondragend", "fim(event)");
+					document.getElementById("c2").appendChild(img);
+				}
+				document.getElementById("c2").style = "display:flex";
+				document.getElementById("c1").style = "display:flex";
+				document.getElementById("d1").style = "display:none";
+				
+			}//carregar
+			
+			function inicio(ev)
+			{
+				ev.dataTransfer.setData("img",ev.target.id);
+			}
+			
+			function fim(ev)
+			{
+				ev.preventDefault();
+				ev.dataTransfer.clearData();
+			}
+			
+			function deixar(ev)
+			{
+				ev.preventDefault();
+				var id = ev.dataTransfer.getData("img");
+				if(ev.target.nodeName == "DIV")
+				{
+					//como se estivessemos movendo
+					ev.target.appendChild(document.getElementById(id));
+				}
+			}
+			
+			function emCima(ev)
+			{
+				ev.preventDefault();
+			}
+			
+		</script>
+	</head>
+	<body>
+		<h1>Quebra-Cabeça</h1>
+		
+		<div id="d1">
+			<h2>Escolha a Imagem</h2>
+			<img src="imagem/castelop.png" onclick="carregar(0)" >
+			<img src="imagem/infantilp.png" onclick="carregar(1)">
+			<img src="imagem/natureza1p.png" onclick="carregar(2)">
+			<img src="imagem/natureza2p.jpg" onclick="carregar(3)">
+		</div>
+		<div id="d5">
+			<div id="c2" ondrop="deixar(event)" ondragover="emCima(event)" ></div>
+			<div id="c1">
+				<div class ="d1" ondrop="deixar(event)" ondragover="emCima(event)"></div>
+				<div class ="d1" ondrop="deixar(event)" ondragover="emCima(event)"></div>
+				<div class ="d1" ondrop="deixar(event)" ondragover="emCima(event)"></div>
+				<div class ="d1" ondrop="deixar(event)" ondragover="emCima(event)"></div>
+				<div class ="d1" ondrop="deixar(event)" ondragover="emCima(event)"></div>
+				<div class ="d1" ondrop="deixar(event)" ondragover="emCima(event)"></div>
+				<div class ="d1" ondrop="deixar(event)" ondragover="emCima(event)"></div>
+				<div class ="d1" ondrop="deixar(event)" ondragover="emCima(event)"></div>
+				<div class ="d1" ondrop="deixar(event)" ondragover="emCima(event)"></div>
+			</div>
+		</div>
+		<br><br><button onclick="document.location.reload(true);">Recarregar Quebra-Cabeça</button>
+	
+	</body>
+</html>
