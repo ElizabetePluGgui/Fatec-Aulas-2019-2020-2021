@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemadesigner version="6.5">
+<source>
+<database charset="utf8mb4" collation="utf8mb4_general_ci">biblioteca_animals</database>
+</source>
+<canvas zoom="100">
+<tables>
+<table name="autores" view="colnames">
+<left>565</left>
+<top>62</top>
+<width>141</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `autores` (
+  `id_autor` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(40) NOT NULL,
+  `id_nacionalidade` int(11) NOT NULL,
+  PRIMARY KEY (`id_autor`),
+  KEY `id_nacionalidade` (`id_nacionalidade`),
+  CONSTRAINT `autores_ibfk_1` FOREIGN KEY (`id_nacionalidade`) REFERENCES `nacionalidades` (`id_nacionalidade`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="bibliotecas" view="colnames">
+<left>696</left>
+<top>413</top>
+<width>117</width>
+<height>163</height>
+<sql_create_table>CREATE TABLE `bibliotecas` (
+  `id_biblioteca` int(11) NOT NULL AUTO_INCREMENT,
+  `telefone` int(11) NOT NULL,
+  `logradouro` varchar(40) NOT NULL,
+  `bairro` varchar(30) NOT NULL,
+  `cidade` varchar(40) NOT NULL,
+  PRIMARY KEY (`id_biblioteca`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="categorias" view="colnames">
+<left>690</left>
+<top>235</top>
+<width>116</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `categorias` (
+  `id_categoria` int(11) NOT NULL AUTO_INCREMENT,
+  `descritivo` varchar(30) NOT NULL,
+  PRIMARY KEY (`id_categoria`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="livros" view="colnames">
+<left>1179</left>
+<top>125</top>
+<width>117</width>
+<height>180</height>
+<sql_create_table>CREATE TABLE `livros` (
+  `id_livro` int(11) NOT NULL AUTO_INCREMENT,
+  `isbn` int(11) NOT NULL,
+  `ano` int(11) NOT NULL,
+  `titulo` varchar(40) NOT NULL,
+  `id_categoria` int(11) NOT NULL,
+  `id_biblioteca` int(11) NOT NULL,
+  PRIMARY KEY (`id_livro`),
+  UNIQUE KEY `isbn` (`isbn`),
+  KEY `id_categoria` (`id_categoria`),
+  KEY `id_biblioteca` (`id_biblioteca`),
+  CONSTRAINT `livros_ibfk_1` FOREIGN KEY (`id_categoria`) REFERENCES `categorias` (`id_categoria`),
+  CONSTRAINT `livros_ibfk_2` FOREIGN KEY (`id_biblioteca`) REFERENCES `bibliotecas` (`id_biblioteca`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="livros_autores" view="colnames">
+<left>866</left>
+<top>69</top>
+<width>144</width>
+<height>129</height>
+<sql_create_table>CREATE TABLE `livros_autores` (
+  `id_livros_autores` int(11) NOT NULL AUTO_INCREMENT,
+  `id_livro` int(11) NOT NULL,
+  `id_autor` int(11) NOT NULL,
+  PRIMARY KEY (`id_livros_autores`),
+  KEY `id_livro` (`id_livro`),
+  KEY `id_autor` (`id_autor`),
+  CONSTRAINT `livros_autores_ibfk_1` FOREIGN KEY (`id_livro`) REFERENCES `livros` (`id_livro`),
+  CONSTRAINT `livros_autores_ibfk_2` FOREIGN KEY (`id_autor`) REFERENCES `autores` (`id_autor`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+<table name="nacionalidades" view="colnames">
+<left>281</left>
+<top>65</top>
+<width>141</width>
+<height>112</height>
+<sql_create_table>CREATE TABLE `nacionalidades` (
+  `id_nacionalidade` int(11) NOT NULL AUTO_INCREMENT,
+  `descritivo` varchar(40) NOT NULL,
+  PRIMARY KEY (`id_nacionalidade`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4</sql_create_table>
+</table>
+</tables>
+</canvas>
+</schemadesigner>
